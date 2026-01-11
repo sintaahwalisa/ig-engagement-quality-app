@@ -15,7 +15,6 @@ st.set_page_config(
 )
 
 st.markdown("## Engagement Quality Assessment")
-st.caption("Assess the likelihood of high-quality engagement.")
 
 
 # ===============================
@@ -103,9 +102,8 @@ input_data = pd.DataFrame([{
 # Prediction
 # ===============================
 prob = model.predict_proba(input_data)[0][1]
-prediction = "High Engagement Quality" if prob >= 0.5 else "Low Engagement Quality"
+prediction = "HIGH" if prob >= 0.5 else "LOW"
 
-st.markdown("### Assessment Result")
 
 col1, col2 = st.columns([2, 1])
 

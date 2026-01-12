@@ -118,13 +118,13 @@ current_rank = (probs < prob).mean()
 
 if current_rank < 0.40:
     prediction = "LOW"
-    message = "not yet"
+    message = "✖ not yet"
 elif current_rank < 0.75:
     prediction = "MODERATE"
-    message = "hold"
+    message = "⏸ hold"
 else:
     prediction = "HIGH"
-    message = "go live"
+    message = "▶ go!"
 
 # =====================================================
 # Output Metrics

@@ -95,22 +95,37 @@ input_data = pd.DataFrame(
     columns=MODEL_FEATURES
 )
 
+prob = model.predict_proba(input_data)[0][1]
+
 if "prob_history" not in st.session_state:
     st.session_state.prob_history = []
 
 st.session_state.prob_history.append(prob)
+
 # =====================================================
-# Prediction Logic (CALIBRATED — NOT HARSH)
+# Prediction
 # =====================================================
+prob = model.predict_proba(input_data)[0][1]
+
+# Store probability history (session-based ranking)
+if "prob_history" not in st.session_state:
+    st.session_state.prob_history = []
+
+st.session_state.prob_history.append(prob)
+
 probs = np.array(st.session_state.prob_history)
 current_rank = (probs < prob).mean()
 
 if current_rank < 0.40:
     prediction = "LOW"
+    message = "Below-average engagement versus comparable posts."
 elif current_rank < 0.75:
     prediction = "MODERATE"
+    message = "Competitive engagement signals detected."
 else:
     prediction = "HIGH"
+    message = "Top-tier engagement potential relative to tested scenarios."
+
 # =====================================================
 # Output Metrics
 # =====================================================

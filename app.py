@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import streamlit as st
 import pandas as pd
 import joblib
@@ -346,4 +345,3 @@ st.divider()
 st.caption(
     "Methodology: Behavioral feature engineering • Interpretable machine learning"
 )
->>>>>>> 581d10030e06d4218cc1311d7559747ee933f68b

@@ -102,7 +102,13 @@ input_data = pd.DataFrame([{
 # Prediction
 # ===============================
 prob = model.predict_proba(input_data)[0][1]
-prediction = "HIGH" if prob >= 0.5 else "LOW"
+if prob < 0.35:
+    prediction = "LOW"
+elif prob < 0.65:
+    prediction = "MODERATE"
+else:
+    prediction = "HIGH"
+
 
 
 col1, col2 = st.columns([2, 1])
@@ -116,10 +122,13 @@ with col1:
 with col2:
     st.metric(
         label="Confidence",
-        value=f"{prob:.1%}"
+        value=f"{prob:.2%}"
     )
 
+
 st.divider()
+
+
 # ===============================
 # SHAP (LOCAL ONLY — SAFE MODE)
 # ===============================

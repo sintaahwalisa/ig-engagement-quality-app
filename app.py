@@ -118,13 +118,13 @@ current_rank = (probs < prob).mean()
 
 if current_rank < 0.40:
     prediction = "LOW"
-    message = "Below-average engagement versus comparable posts."
+    message = "not yet"
 elif current_rank < 0.75:
     prediction = "MODERATE"
-    message = "Competitive engagement signals detected."
+    message = "hold"
 else:
     prediction = "HIGH"
-    message = "Top-tier engagement potential relative to tested scenarios."
+    message = "go live"
 
 # =====================================================
 # Output Metrics

@@ -103,6 +103,7 @@ input_data = pd.DataFrame([{
 # ===============================
 prob = model.predict_proba(input_data)[0][1]
 prediction = "HIGH" if prob >= 0.5 else "LOW"
+st.write("Raw probability:", prob)
 
 
 col1, col2 = st.columns([2, 1])

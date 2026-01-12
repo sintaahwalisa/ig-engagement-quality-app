@@ -16,7 +16,6 @@ st.set_page_config(
 )
 
 st.markdown("## Engagement Quality Assessment")
-st.caption("Evaluate whether a post is likely to generate high-quality engagement based on behavioral signals.")
 
 # =====================================================
 # Load Model (Cached)
